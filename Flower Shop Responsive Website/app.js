@@ -19,3 +19,32 @@ $(document).ready(function(){
       },
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize total price
+    let totalPrice = 0;
+
+    // Get all "Add to Cart" buttons
+    const addToCartButtons = document.querySelectorAll('.btn');
+
+    // Get the cart total element
+    const cartTotal = document.getElementById('cart-total');
+
+    // Add click event listener to each "Add to Cart" button
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Prevent the default action (if any)
+            event.preventDefault();
+
+            // Get the price of the product
+            const priceElement = button.closest('.innerproductsection').querySelector('.price .clrchange');
+            const price = parseFloat(priceElement.textContent.replace('Rs.', '').trim());
+
+            // Update the total price
+            totalPrice += price;
+
+            // Update the cart total in the navbar
+            cartTotal.textContent = `Rs. ${totalPrice.toFixed(2)}`;
+        });
+    });
+});

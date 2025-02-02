@@ -65,6 +65,16 @@ header .container .row .navbar h1.logo:hover span {
     transition: 0.5s ease;
 }
 
+#cart-icon {
+    position: relative;
+}
+
+#cart-total {
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 section.section1 {
     background: url(./assets/section1banner.jpg);
     height: 700px;
